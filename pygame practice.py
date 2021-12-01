@@ -7,7 +7,7 @@ from pygame.locals import *
 pygame.init()
 
 # Create game window.
-windowSurface = pygame.display.set_mode(500,400), 0, 32
+windowSurface = pygame.display.set_mode((500,400), 0, 32)
 pygame.display.set_caption("Hello world!")
 
 # Set Color Values
@@ -31,7 +31,7 @@ textRect.centery = windowSurface.get_rect().centery
 windowSurface.fill(DARKRED)
 
 # Draw a green polygon onto the surface.
-pygame.draw.polygon(windowSurface, GREEN ((146, 0), (291, 106), (236,277), (56,277), (0,106)))
+pygame.draw.polygon(windowSurface, GREEN, ((146, 0), (291, 106), (236,277), (56,277), (0,106)))
 
 # Draw blue lines on the windowSurface.
 pygame.draw.line(windowSurface, BLUE, (60,60), (120,60) , 4)
@@ -45,7 +45,7 @@ pygame.draw.circle(windowSurface, BLUE, (300,50), 20, 0)
 pygame.draw.ellipse(windowSurface, RED, (300, 250, 40, 80), 1)
 
 # Draw text background rectangle onto surface. NEW STARTING WEDNEDAY 
-pygame.draw.rect(windowSurface, RED, (textRect.left - 20, textRect.top - 20, textRect.width + 40, textRect.height + 40))+
+pygame.draw.rect(windowSurface, RED, (textRect.left - 20, textRect.top - 20, textRect.width + 40, textRect.height + 40))
 
 # Get a pixel array of the surface
 pixArray = pygame.PixelArray(windowSurface)
@@ -56,3 +56,11 @@ del pixArray
 windowSurface.blit(text, textRect)
 
 # Draw the window onto the screen
+pygame.display.update()
+
+# Run the game loop.
+while True:
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            pygame.quit()
+            sys.exit()
